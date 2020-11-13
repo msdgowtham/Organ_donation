@@ -9,13 +9,13 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route('/ministries')
-def ministries():
-    return render_template("ministries.html")
+@app.route('/awareness')
+def awareness():
+    return render_template("awareness.html")
 
-@app.route('/sermons')
-def sermons():
-    return render_template("sermons.html")
+@app.route('/aboutonelife')
+def aboutonelife():
+    return render_template("aboutonelife.html")
 
 @app.route('/event')
 def event():
@@ -29,21 +29,15 @@ def event_details():
 def about_us():
     return render_template("about-us.html")
 
-@app.route('/donation')
-def donation():
-    return render_template("donation.html")
 
-@app.route('/gallery')
-def gallery():
-    return render_template("gallery.html")
+@app.route('/contact')
+def contact():
+    return render_template("contact.html")
 
-@app.route('/blog')
-def blog():
-    return render_template("blog.html")
+@app.route('/elements')
+def elements():
+    return render_template("elements.html")
 
-@app.route('/blog-single')
-def blog_single():
-    return render_template("blog-single.html")
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(24)

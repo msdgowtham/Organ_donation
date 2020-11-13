@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/static/image/favicon.png" type="image/png">
-        <title>ONE LIFE</title>
+        <title>OneLife</title>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="/static/css/bootstrap.css">
         <link rel="stylesheet" href="/static/vendors/linericon/style.css">
@@ -16,6 +16,7 @@
         <!-- main css -->
         <link rel="stylesheet" href="/static/css/style.css">
         <link rel="stylesheet" href="/static/css/responsive.css">
+        <link rel="stylesheet" href="/static/css/signup.css">
     </head>
     <body>
         <!--================Header Area =================-->
@@ -33,7 +34,8 @@
                         <div class="col-sm-6 col-7">
                             <div class="top_btn d-flex justify-content-end">
                                 <a href="#">My Account</a>
-                                <a href="#">Donate Now</a>
+								<a href="#"  onclick="document.getElementById('id02').style.display='block'">Donor ID</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -42,7 +44,7 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="index"><img src="/static/image/Logo.png" width="190" height="60" alt=""></a>
+                    <a class="navbar-brand logo_h" href="index.html"><img src="/static/image/Logo.png" width="190" height="60" alt=""></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -51,37 +53,26 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item active"><a class="nav-link" href="index">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ministries">Minisrtries</a></li>
-                            <li class="nav-item"><a class="nav-link" href="sermons">Sermons</a></li>
+                            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="aboutonelife.html">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="awareness.html">Awareness</a></li>
                             <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EVENT</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Know More</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="event">Event</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="event-details">Event Details</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="event.html">Abt Organ Donation</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="event-details.html">Abt Tissue Donation</a></li>
                                 </ul>
                             </li> 
                             <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PAGES</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laws</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="about-us">About</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="donation">Donation</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="gallery">Gallery</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="elements">Elements</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="about-us.html">Transplant Laws</a></li>
+                                    
                                 </ul>
                             </li> 
-                            <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">BLOG</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="blog">Blog</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="blog-single">Blog Details</a></li>
-                                </ul>
-                            </li> 
-
+                            
                         </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="nav-item"><a href="#" class="search"><i class="lnr lnr-magnifier"></i></a></li>
-                        </ul>
+                        
                     </div> 
                 </div>
             </nav>
@@ -97,7 +88,8 @@
                             <h6>The Gift of Life, Pass It On</h6>
                             <h1>Organ Donation </h1>
                             <p>A life is saved each time an organ is donated<br> Lets's donate to save a LIFE</p>
-                            <a href="#" class="btn_hover btn_hover_two">WANT TO DONATE?</a>
+                            
+							<a href="#" class="btn_hover btn_hover_two" onclick="document.getElementById('id01').style.display='block'">WANT TO DONATE?</a>
 							<h7 style="font-size:0.7vw"><br>Click here to apply for DONOR ID </h7>
                         </div>
                     </div>
@@ -251,7 +243,7 @@
 					<div class="item row">
                         <div class="col-lg-8">
                             <div class="sermons_image">
-                                <img src="/static/image/img4.jpg"  height="300" alt="">
+                                <img src="/static/image/img4.jpg"  height="300"alt="">
                                 <p>"I was an industrialist at a Coal Mining Centre,due to my work intensity i have to stay there for hours. Due to this my Lungs were polluted and I was treated with Lung Transplantation"</p>
                             </div>
                         </div>
@@ -375,7 +367,19 @@
                         <div class="single-footer-widget">
                             <h6 class="footer_title">Navigation Links</h6>
                             <div class="row">
-                                										
+                                <div class="col-4">
+                                    <ul class="list_style">
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Awareness</a></li>
+                                        <li><a href="#">KnowMore</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-4">
+                                    <ul class="list_style">
+                                        <li><a href="#">Laws</a></li>                                        
+                                    </ul>
+                                </div>										
                             </div>							
                         </div>
                     </div>							
@@ -412,6 +416,83 @@
         </footer>
 		<!--================ End footer Area  =================-->
         
+        <!-- Sign up Form-->
+        <div id="id01" class="modal">
+
+        <form class="modal-content">
+        <div class="container">
+          <h1>Donor Sign Up</h1>
+          <p>Please fill in this form to create a donor account.</p>
+          <hr>
+
+          <label for="name"><b>Name</b></label>
+          <input type="text" placeholder="Enter Name" name="Name" required>
+
+          <label for="age"><b>Age</b></label>
+          <div>
+          <select class="custom-select" required>
+                  <option value="">Select Your Age</option>
+                  <option value="10-20">10-20</option>
+                  <option value="21-30">21-30</option>
+                  <option value="31-40">31-40</option>
+                   <option value="41-50">41-50</option>
+                  <option value="51-60">51-60</option>
+                  <option value="61-70">61-70</option>
+           </select>
+            </div>
+          <label for="BloodGroup"><b>Blood Group</b></label>
+             <div>
+              <select class="custom-select" required>
+                    <option value="">Select Blood Group</option>
+                    <option value="O+">O+</option>
+                    <option value="A+">A+</option>
+                    <option value="B+">B+</option>
+                    <option value="AB+">AB+</option>
+					<option value="AB-">AB-</option>
+					<option value="O-">O-</option>
+					<option value="A-">A-</option>
+					<option value="B-">B-</option>
+              </select>
+             </div>
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+          <div class="clearfix">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="genric-btn success-border large">Cancel</button>
+            <button type="submit" class="genric-btn success large" id="signupbtn">Sign Up</button>
+          </div>
+        </div>
+      </form>
+  </div>
+  <!--Donor Login -->
+  <div id="id02" class="modal">
+
+        <form class="modal-content">
+        <div class="container">
+          <h1>Donor Login</h1>
+          
+          <hr>
+  
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          
+
+          <div class="clearfix">
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="genric-btn primary-border circle"><h5>Cancel</h5</button>
+            <button type="submit" class="genric-btn primary circle" id="signupbtn"><h5>Login</h5></button>
+          </div>
+        </div>
+      </form>
+  </div>
         
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -427,5 +508,7 @@
         <script src="vendors/flipclock/timer.js"></script>
         <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
         <script src="js/custom.js"></script>
+         <script src="js/signup.js"></script>
+		 <script src="js/Login.js"></script>
     </body>
 </html>

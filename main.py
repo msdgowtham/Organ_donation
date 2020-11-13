@@ -1,6 +1,9 @@
 from flask import Flask, request, render_template, url_for, session, redirect, g
 import os
 from datetime import timedelta
+from login import login
+from register import register
+
 
 app = Flask(__name__)
 
@@ -37,6 +40,38 @@ def contact():
 @app.route('/elements')
 def elements():
     return render_template("elements.html")
+
+@app.route('/loginForm', methods=['GET', 'POST'])
+def loginForm():
+    result = request.form
+    x = login()
+    y = x.validateLogin(**result)
+    if request.method == 'POST':
+        session.pop('mail', None)
+        if y == True:
+            session['mail'] = result['email']
+            return render_template("index.html", login=True)
+    return render_template("index.html", login=False)
+
+@app.before_request
+def before_request():
+    g.mail = None
+    if 'mail' in session:
+        g.mail = session['mail']
+
+
+
+@app.route('/getsession')
+def getsession():
+    if 'mail' in session:
+        return session['mail']
+    return 'Not logged in!'
+
+
+@app.route('/dropsession')
+def dropsession():
+    session.pop('mail', None)
+    return render_template("index.html")
 
 
 if __name__ == "__main__":

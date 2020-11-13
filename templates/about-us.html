@@ -1,22 +1,23 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="image/favicon.png" type="image/png">
-        <title>OneLife</title>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="vendors/linericon/style.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
-        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-        <!-- main css -->
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/responsive.css">
-    </head>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/static/image/favicon.png" type="image/png">
+    <title>OneLife</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/vendors/linericon/style.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="/static/vendors/nice-select/css/nice-select.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="stylesheet" href="/static/css/signup.css">
+</head>
     <body>
         <!--================Header Area =================-->
         <header class="header_area">
@@ -27,13 +28,14 @@
                             <ul class="nav social_icon">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                
+
                             </ul>
                         </div>
                         <div class="col-sm-6 col-7">
                             <div class="top_btn d-flex justify-content-end">
                                 <a href="#">My Account</a>
-                                <a href="#">Donate Now</a>
+                                <a href="#"  onclick="document.getElementById('id02').style.display='block'">Donor ID</a>
+
                             </div>
                         </div>
                     </div>
@@ -42,7 +44,7 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="index.html"><img src="image/Logo.png" width="190" height="60" alt=""></a>
+                    <a class="navbar-brand logo_h" href="/index"><img src="/static/image/Logo.png" width="190" height="60" alt=""></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -51,25 +53,27 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li> 
-                            <li class="nav-item"><a class="nav-link" href="aboutonelife.html">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="awareness.html">Awareness</a></li>
+                            <li class="nav-item active"><a class="nav-link" href="/index">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/aboutonelife">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/awareness">Awareness</a></li>
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Know More</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="event.html">Abt Organ Donation</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="event-details.html">Abt Tissue Donation</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/event">Abt Organ Donation</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/event-details">Abt Tissue Donation</a></li>
                                 </ul>
-                            </li> 
-                            <li class="nav-item submenu dropdown active">
+                            </li>
+                            <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laws</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="about-us.html">Transplant Laws</a></li>
-                                    
+                                    <li class="nav-item"><a class="nav-link" href="/about-us">Transplant Laws</a></li>
+
                                 </ul>
-                            </li> 
-                            
-                    </div> 
+                            </li>
+
+                        </ul>
+
+                    </div>
                 </div>
             </nav>
         </header>
@@ -95,40 +99,40 @@
                 <div class="section_title text-center">
                     <h2> Organ Transplantation Laws &#038; Rules </h2>
 					<br>					
-                    <h4 class="text-right"><strong>Laws and Rules Governing Organ Transplantation in India</strong></h4>
-                    <p class="text-right">The primary legislation related to organ donation and transplantation in India, Transplantation of Human Organs Act, was passed in 1994 and is aimed at regulation of removal, storage and transplantation of human organs for therapeutic purposes and for prevention of commercial dealings in human organs.</p>
-                    <p class="text-right">In India, matters related to health are governed by each state. The Act was initiated at the request of Maharashtra, Himachal Pradesh and Goa (who therefore adopted it by default) and was subsequently adopted by all states except Andhra Pradesh and Jammu &amp;Kashmir. Despite a regulatory framework, cases of commercial dealings in human organs were reported in the media. An amendment to the act was proposed by the states of Goa, Himachal Pradesh and West Bengal in 2009 to address inadequacies in the efficacy, relevance and impact of the Act. The amendment to the Act was passed by the parliament in 2011, and the rules were notified in 2014. The same is adopted by the proposing states and union territories by default and may be adopted by other states by passing a resolution.</p>
+                    <h4 class="text-left"><strong>Laws and Rules Governing Organ Transplantation in India</strong></h4>
+                    <p class="text-left">The primary legislation related to organ donation and transplantation in India, Transplantation of Human Organs Act, was passed in 1994 and is aimed at regulation of removal, storage and transplantation of human organs for therapeutic purposes and for prevention of commercial dealings in human organs.</p>
+                    <p class="text-left">In India, matters related to health are governed by each state. The Act was initiated at the request of Maharashtra, Himachal Pradesh and Goa (who therefore adopted it by default) and was subsequently adopted by all states except Andhra Pradesh and Jammu &amp;Kashmir. Despite a regulatory framework, cases of commercial dealings in human organs were reported in the media. An amendment to the act was proposed by the states of Goa, Himachal Pradesh and West Bengal in 2009 to address inadequacies in the efficacy, relevance and impact of the Act. The amendment to the Act was passed by the parliament in 2011, and the rules were notified in 2014. The same is adopted by the proposing states and union territories by default and may be adopted by other states by passing a resolution.</p>
                     <br>
-					<h4 class="text-right"><strong>The main provisions of the Act (including the amendments and rules of 2014) are as follows:</strong></h4>
-                    <p class="text-right"><strong>A</strong>. Brain death identified as a form of death. Process and criteria for brain death certification defined (Form 10 )</p>
-                    <p class="text-right"><strong>B</strong>. Allows transplantation of human organs and tissues from living donors and cadavers (after cardiac or brain death)</p>
-                    <p class="text-right"><strong>C</strong>. Regulatory and advisory bodies for monitoring transplantation activity and their constitution defined.</p>
-                    <p class="text-right">(i) Appropriate Authority (AA): inspects and grants registration to hospitals for transplantation enforces required standards for hospitals, conducts regular inspections to examine the quality of transplantations. It may conduct investigations into complaints regarding breach of provisions of the Act, and has the powers of a civil court to summon any person, request documents and issue search warrants.</p>
-                    <p class="text-right">(ii)  Advisory Committee: consisting of experts in the domain who shall advise the appropriate authority.</p>
-                    <p class="text-right">(iii) Authorization Committee (AC): regulates living donor transplantation by reviewing each case to ensure that the living donor is not exploited for monetary considerations and to prevent commercial dealings in transplantation. Proceedings to be video recorded and decisions notified within 24 hours. Appeals against their decision may be made to the state or central government.</p>
-                    <p class="text-right">(iv) Medical board (Brain Death Committee): Panel of doctors responsible for brain death certification. In case of non-availability of neurologist or neurosurgeon, any surgeon, physician, anaesthetist or intensivist, nominated by medical administrator in-charge of the hospital may certify brain death.</p>
-                    <p class="text-right"><strong>D</strong>. Living donors are classified as either a near relative or a non-related donor.</p>
-                    <p class="text-right">(i) A near-relative (spouse, children, grandchildren, siblings, parents and grandparents) needs permission of the doctor in-charge of the transplant center to donate his organ.</p>
-                    <p class="text-right">(ii) A non-related donor needs permission of an Authorization Committee established by the state to donate his organs.</p>
-                    <p class="text-right"><strong>E</strong>. Swap Transplantation: When a near relative living donor is medically incompatible with the recipient, the pair is permitted to do a swap transplant with another related unmatched donor/recipient pair.</p>
-                    <p class="text-right"><strong>F</strong>. Authorization for organ donation after brain death</p>
-                    <p class="text-right">(i) May be given before death by the person himself/herself or</p>
-                    <p class="text-right">(ii) By the person in legal possession of the body. A doctor shall ask the patient or relative of every person admitted to the ICU whether any prior authorization had been made. If not, the patient or his near relative should be made aware of the option to authorize such donation.</p>
-                    <p class="text-right">(iii) Authorization process for organ or tissue donation from unclaimed bodies outlined.</p>
-                    <p class="text-right"><strong>G</strong>. Organ retrieval permitted from any hospital with ICU facility once registered with the appropriate authority. Any hospital having Intensive Care Unit (ICU) facilities along with manpower, infrastructure and equipment as required to diagnose and maintain the brain-stem dead person and to retrieve and transport organs and tissues including the facility for their temporary storage, can register as a retrieval center.</p>
-                    <p class="text-right"><strong>H</strong>. Cost of donor management, retrieval, transportation and preservation to be borne by the recipient, institution, government, NGO or society, and not by the donor family.</p>
-                    <p class="text-right"><strong>I</strong>. Procedure for organ donation in medico-legal cases defined to avoid jeopardizing determination of the cause of death and delay in retrieval of organs.</p>
-                    <p class="text-right"><strong>J</strong>. Manpower and Facilities required for registration of a hospital as a transplant center outlined.</p>
-                    <p class="text-right"><strong>K</strong>. Infrastructure, equipment requirements and guidelines and standard operating procedures for tissue banks outlined.</p>
-                    <p class="text-right"><strong>L</strong>. Qualifications of transplant surgeons, cornea and tissue retrieval technicians defined.</p>
-                    <p class="text-right"><strong>M</strong>. Appointment of transplant coordinators (with defined qualifications) made mandatory in all transplant centers.</p>
-                    <p class="text-right"><strong>N</strong>. Non-governmental organisations, registered societies and trusts working in the field of organ or tissue removal, storage or transplantation will require registration.</p>
-                    <p class="text-right"><strong>O</strong>. The central government to establish a National Human Organs and Tissues Removal and Storage Network i.e. NOTTO (National Organ &amp; Tissue Transplant Organisation), ROTTO (Regional Organ &amp; Tissue Transplant Organisation) and SOTTO (State Organ &amp; Tissue Transplant Organisation). Website www.notto.nic.in. Manner of establishing National or Regional or State Human Organs and Tissues Removal and Storage Networks and their functions clearly stated.</p>
-                    <p class="text-right"><strong>P</strong>. The central government shall maintain a registry of the donors and recipients of human organs and tissues.</p>
-                    <p class="text-right"><strong>Q</strong>. Penalties for removal of organ without authority, making or receiving payment for supplying human organs or contravening any other provisions of the Act have been made very stringent in order to serve as a deterrent for such activities.</p>
+					<h4 class="text-left"><strong>The main provisions of the Act (including the amendments and rules of 2014) are as follows:</strong></h4>
+                    <p class="text-left"><strong>A</strong>. Brain death identified as a form of death. Process and criteria for brain death certification defined (Form 10 )</p>
+                    <p class="text-left"><strong>B</strong>. Allows transplantation of human organs and tissues from living donors and cadavers (after cardiac or brain death)</p>
+                    <p class="text-left"><strong>C</strong>. Regulatory and advisory bodies for monitoring transplantation activity and their constitution defined.</p>
+                    <p class="text-left">(i) Appropriate Authority (AA): inspects and grants registration to hospitals for transplantation enforces required standards for hospitals, conducts regular inspections to examine the quality of transplantations. It may conduct investigations into complaints regarding breach of provisions of the Act, and has the powers of a civil court to summon any person, request documents and issue search warrants.</p>
+                    <p class="text-left">(ii)  Advisory Committee: consisting of experts in the domain who shall advise the appropriate authority.</p>
+                    <p class="text-left">(iii) Authorization Committee (AC): regulates living donor transplantation by reviewing each case to ensure that the living donor is not exploited for monetary considerations and to prevent commercial dealings in transplantation. Proceedings to be video recorded and decisions notified within 24 hours. Appeals against their decision may be made to the state or central government.</p>
+                    <p class="text-left">(iv) Medical board (Brain Death Committee): Panel of doctors responsible for brain death certification. In case of non-availability of neurologist or neurosurgeon, any surgeon, physician, anaesthetist or intensivist, nominated by medical administrator in-charge of the hospital may certify brain death.</p>
+                    <p class="text-left"><strong>D</strong>. Living donors are classified as either a near relative or a non-related donor.</p>
+                    <p class="text-left">(i) A near-relative (spouse, children, grandchildren, siblings, parents and grandparents) needs permission of the doctor in-charge of the transplant center to donate his organ.</p>
+                    <p class="text-left">(ii) A non-related donor needs permission of an Authorization Committee established by the state to donate his organs.</p>
+                    <p class="text-left"><strong>E</strong>. Swap Transplantation: When a near relative living donor is medically incompatible with the recipient, the pair is permitted to do a swap transplant with another related unmatched donor/recipient pair.</p>
+                    <p class="text-left"><strong>F</strong>. Authorization for organ donation after brain death</p>
+                    <p class="text-left">(i) May be given before death by the person himself/herself or</p>
+                    <p class="text-left">(ii) By the person in legal possession of the body. A doctor shall ask the patient or relative of every person admitted to the ICU whether any prior authorization had been made. If not, the patient or his near relative should be made aware of the option to authorize such donation.</p>
+                    <p class="text-left">(iii) Authorization process for organ or tissue donation from unclaimed bodies outlined.</p>
+                    <p class="text-left"><strong>G</strong>. Organ retrieval permitted from any hospital with ICU facility once registered with the appropriate authority. Any hospital having Intensive Care Unit (ICU) facilities along with manpower, infrastructure and equipment as required to diagnose and maintain the brain-stem dead person and to retrieve and transport organs and tissues including the facility for their temporary storage, can register as a retrieval center.</p>
+                    <p class="text-left"><strong>H</strong>. Cost of donor management, retrieval, transportation and preservation to be borne by the recipient, institution, government, NGO or society, and not by the donor family.</p>
+                    <p class="text-left"><strong>I</strong>. Procedure for organ donation in medico-legal cases defined to avoid jeopardizing determination of the cause of death and delay in retrieval of organs.</p>
+                    <p class="text-left"><strong>J</strong>. Manpower and Facilities required for registration of a hospital as a transplant center outlined.</p>
+                    <p class="text-left"><strong>K</strong>. Infrastructure, equipment requirements and guidelines and standard operating procedures for tissue banks outlined.</p>
+                    <p class="text-left"><strong>L</strong>. Qualifications of transplant surgeons, cornea and tissue retrieval technicians defined.</p>
+                    <p class="text-left"><strong>M</strong>. Appointment of transplant coordinators (with defined qualifications) made mandatory in all transplant centers.</p>
+                    <p class="text-left"><strong>N</strong>. Non-governmental organisations, registered societies and trusts working in the field of organ or tissue removal, storage or transplantation will require registration.</p>
+                    <p class="text-left"><strong>O</strong>. The central government to establish a National Human Organs and Tissues Removal and Storage Network i.e. NOTTO (National Organ &amp; Tissue Transplant Organisation), ROTTO (Regional Organ &amp; Tissue Transplant Organisation) and SOTTO (State Organ &amp; Tissue Transplant Organisation). Website www.notto.nic.in. Manner of establishing National or Regional or State Human Organs and Tissues Removal and Storage Networks and their functions clearly stated.</p>
+                    <p class="text-left"><strong>P</strong>. The central government shall maintain a registry of the donors and recipients of human organs and tissues.</p>
+                    <p class="text-left"><strong>Q</strong>. Penalties for removal of organ without authority, making or receiving payment for supplying human organs or contravening any other provisions of the Act have been made very stringent in order to serve as a deterrent for such activities.</p>
                     <br>
-					<h4 class="text-right"><strong>The various forms outlined in the rules are as follows:</strong></h4>
-                    <p class="text-right">Form 1: Near-relative consent<br />
+					<h4 class="text-left"><strong>The various forms outlined in the rules are as follows:</strong></h4>
+                    <p class="text-left">Form 1: Near-relative consent<br />
                        Form 2: Spouse consent<br />
                        Form 3: Other than near-relative donor consent<br />
                        Form 4: Psychiatrist evaluation of the donor<br />

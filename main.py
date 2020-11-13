@@ -79,6 +79,40 @@ def loginForm():
             return render_template("index.html", login=True)
     return render_template("index.html", login=False)
 
+
+@app.route('/HosploginForm', methods=['GET', 'POST'])
+def HosploginForm():
+    result = request.form
+    x = login()
+    y = x.validatehospLogin(**result)
+    if request.method == 'POST':
+        session.pop('mail', None)
+        if y == True:
+            session['mail'] = result['email1']
+            #print("Session mail obj: ",session['mail'])
+            return redirect(url_for("home"))
+    return render_template("myacc.html", login=False)
+
+@app.route('/home/<login>')
+@app.route('/home')
+def home(login=None):
+    if g.mail:
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "organdonation")
+        cursor = db.cursor()
+        sql = "select * from users"
+        try:
+            # Execute the SQL command
+            cursor.execute(sql)
+            # Fetch all the rows in a list of lists.
+            users = cursor.fetchall()
+            # print(user)
+        except:
+            print("Error: unable to fetch data")
+        db.close()
+        return render_template("home.html",login=True,users=users)
+    else:
+        return render_template("index.html")
+
 @app.route('/updateForm', methods=['GET', 'POST'])
 def updateForm():
     if g.mail:

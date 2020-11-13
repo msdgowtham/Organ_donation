@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="/static/image/favicon.png" type="image/png">
@@ -18,9 +17,33 @@
     <link rel="stylesheet" href="/static/css/responsive.css">
     <link rel="stylesheet" href="/static/css/signup.css">
 </head>
-<body>
+<style>
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
 
-<!--================Header Area =================-->
+td, th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+
+/*tr:nth-child(even) {
+background-color: #dddddd;
+}*/
+
+.my-custom-scrollbar {
+position: relative;
+height: 200px;
+overflow: auto;
+}
+.table-wrapper-scroll-y {
+display: block;
+}
+</style>
+<body>
 <header class="header_area">
     <div class="header_top">
         <div class="container">
@@ -35,11 +58,9 @@
                 <div class="col-sm-6 col-7">
                     <div class="top_btn d-flex justify-content-end">
                         <a href="#">My Account</a>
-                        {% if login == True %}
+
                         <a href="/dropsession">Logout</a>
-                        {% else %}
-                        <a href="#"  onclick="document.getElementById('id02').style.display='block'">Donor ID</a>
-                        {% endif %}
+
                     </div>
                 </div>
             </div>
@@ -57,149 +78,69 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                 <ul class="nav navbar-nav menu_nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="/index">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/aboutonelife">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/awareness">Awareness</a></li>
-                    <li class="nav-item submenu dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Know More</a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a class="nav-link" href="/event">Abt Organ Donation</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/event-details">Abt Tissue Donation</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item submenu dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laws</a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a class="nav-link" href="/about-us">Transplant Laws</a></li>
-
-                        </ul>
-                    </li>
-
+                    <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
                 </ul>
 
             </div>
         </div>
     </nav>
 </header>
-<!--================Header Area =================-->
 
 
-{% if login == True %}
-<section class="text-center">
-    <div class="container align-self-center">
-<h3>Account details</h3>
-<div id="id02">
-    <form class="modal-content" action="updateForm" method="post">
-        <div class="container">
-            <label for="donorid"><b>Donor ID</b></label>
-            <input type="text" id="donorid" placeholder="Enter Name" name="donorid" value={{user[0][0]}} required readonly>
 
-            <label for="name"><b>Name</b></label>
-            <input type="text" id="name" placeholder="Enter Name" name="name" value={{user[0][2]}} required readonly>
-
-            <label for="age"><b>Donor ID</b></label>
-            <input type="text" id="age" placeholder="Age" name="age" value={{user[0][3]}} required readonly>
-
-            <label for="BloodGroup"><b>Name</b></label>
-            <input type="text" id="BloodGroup" placeholder="Enter BloodGroup" name="BloodGroup" value={{user[0][5]}} required readonly>
-
-            <label for="organ_sel"><b>Organ</b></label>
-
-            <div class="" id="organ_sel" name="organ_sel" style="color: black" >
-                {% if user[0][6] == 1%}
-                <input type="checkbox" name="organ" value="Heart" checked>Heart
-                {% else %}
-                <input type="checkbox" name="organ" value="Heart">Heart
-                {% endif%}
-                {% if user[0][7] == 1%}
-                <input type="checkbox" name="organ" value="Liver" checked>Liver
-                {% else %}
-                <input type="checkbox" name="organ" value="Liver">Liver
-                {% endif%}
-                {% if user[0][8] == 1%}
-                <input type="checkbox" name="organ" value="Kidney" checked> Kidney
-                {% else %}
-                <input type="checkbox" name="organ" value="Kidney"> Kidney
-                {% endif%}
-                {% if user[0][9] == 1%}
-                <input type="checkbox" name="organ" value="Eyes" checked>Eyes
-                {% else %}
-                <input type="checkbox" name="organ" value="Eyes">Eyes
-                {% endif%}
-                {% if user[0][10] == 1%}
-                <input type="checkbox" name="organ" value="Lungs" checked>Lungs
-                {% else %}
-                <input type="checkbox" name="organ" value="Lungs">Lungs
-                {% endif%}
-            </div>
-
-            <label for="email"><b>Email</b></label>
-            <input type="text" id="email" placeholder="Enter Email" name="email" value={{user[0][1]}} required readonly>
-
-            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-            {% if status == True %}
-            <p id="demo" style="color:green">Updated Successfully! </p>
-            {% elif status == False %}
-            <p id="demo1" style="color:red">Error Occured, Try Again!</p>
-            {% endif %}
-
-            <div class="clearfix">
-                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="genric-btn success-border large">Cancel</button>
-                <button type="submit" class="genric-btn success large" id="updatebtn">Update</button>
-            </div>
-
-
-        </div>
-    </form>
-</div>
-    </div>
-</section>
-{% if update == True %}
-<script>
-        function myFunction() {
-          alert("Updated Successfully!!");
-        }
-        myFunction()
-        </script>
-{% elif update == False %}
-<script>
-        function myFunction() {
-          alert("Error Updating \n Try again!!");
-        }
-        myFunction()
-        </script>
-{% endif %}
-{% else %}
-<!--================banner Area =================-->
 <section class="banner_area d-flex text-center">
     <div class="container align-self-center">
         <div class="row">
             <div class="col-md-12">
-                <div class="banner_content">
-                    <h3>Hospital Login</h3>
-                    <div >
-                        <form class="modal-content" action="HosploginForm" method="post">
-                            <div class="container">
-                                <h1>Donor Login</h1>
-                                <label for="email1"><b>Email</b></label>
-                                <input type="email" id="email1" placeholder="Enter Email" name="email1" required><br>
+                <div class="banner_content align-self-center">
+                    <h6>The Gift of Life, Pass It On</h6>
+                    <h1>Organ Donation </h1>
 
-                                <label for="pwd"><b>Password</b></label>
-                                <input type="password" id="pwd" placeholder="Enter Password" name="pwd" required>
-
-                                <div class="clearfix">
-                                    <button type="submit" class="genric-btn primary circle" id="login"><h5>Login</h5></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-{% endif %}
+
+<section class="container">
+    <div class="row">
+        <h3> Users Details</h3>
+    </div>
+    <div style="overflow-y:auto;" class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-bordered table-striped mb-0">
+            <tr>
+                <th>Donor ID</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Blood Group</th>
+                <th>Heart</th>
+                <th>Liver</th>
+                <th>Kidney</th>
+                <th>Eyes</th>
+                <th>Lungs</th>
+
+            </tr>
+            {% for i in users %}
+            <tr>
+                <td>{{i[0]}}</td>
+                <td>{{i[2]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[5]}}</td>
+                <td>{{i[6]}}</td>
+                <td>{{i[7]}}</td>
+                <td>{{i[8]}}</td>
+                <td>{{i[9]}}</td>
+                <td>{{i[10]}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+    </div>
+</section>
+
+
+
+
+
 
 <!--================ start footer Area  =================-->
 <footer class="footer-area section_gap">

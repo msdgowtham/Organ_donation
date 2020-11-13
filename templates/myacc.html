@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/static/image/favicon.png" type="image/png">
+    <title>OneLife</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/vendors/linericon/style.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="/static/vendors/nice-select/css/nice-select.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="stylesheet" href="/static/css/signup.css">
+</head>
+<body>
+
+<!--================Header Area =================-->
+<header class="header_area">
+    <div class="header_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-5">
+                    <ul class="nav social_icon">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-7">
+                    <div class="top_btn d-flex justify-content-end">
+                        <a href="#">My Account</a>
+                        {% if login == True %}
+                        <a href="/dropsession">Logout</a>
+                        {% else %}
+                        <a href="#"  onclick="document.getElementById('id02').style.display='block'">Donor ID</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand logo_h" href="/index"><img src="/static/image/Logo.png" width="190" height="60" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                <ul class="nav navbar-nav menu_nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/index">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/aboutonelife">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/awareness">Awareness</a></li>
+                    <li class="nav-item submenu dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Know More</a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="/event">Abt Organ Donation</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/event-details">Abt Tissue Donation</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item submenu dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laws</a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="/about-us">Transplant Laws</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<!--================Header Area =================-->
+
+
+{% if login == True %}
+<section class="text-center">
+    <div class="container align-self-center">
+<h3>Account details</h3>
+<div id="id02">
+    <form class="modal-content" action="updateForm" method="post">
+        <div class="container">
+            <label for="donorid"><b>Donor ID</b></label>
+            <input type="text" id="donorid" placeholder="Enter Name" name="donorid" value={{user[0][0]}} required readonly>
+
+            <label for="name"><b>Name</b></label>
+            <input type="text" id="name" placeholder="Enter Name" name="name" value={{user[0][2]}} required readonly>
+
+            <label for="age"><b>Donor ID</b></label>
+            <input type="text" id="age" placeholder="Age" name="age" value={{user[0][3]}} required readonly>
+
+            <label for="BloodGroup"><b>Name</b></label>
+            <input type="text" id="BloodGroup" placeholder="Enter BloodGroup" name="BloodGroup" value={{user[0][5]}} required readonly>
+
+            <label for="organ_sel"><b>Organ</b></label>
+
+            <div class="" id="organ_sel" name="organ_sel" style="color: black" >
+                {% if user[0][6] == 1%}
+                <input type="checkbox" name="organ" value="Heart" checked>Heart
+                {% else %}
+                <input type="checkbox" name="organ" value="Heart">Heart
+                {% endif%}
+                {% if user[0][7] == 1%}
+                <input type="checkbox" name="organ" value="Liver" checked>Liver
+                {% else %}
+                <input type="checkbox" name="organ" value="Liver">Liver
+                {% endif%}
+                {% if user[0][8] == 1%}
+                <input type="checkbox" name="organ" value="Kidney" checked> Kidney
+                {% else %}
+                <input type="checkbox" name="organ" value="Kidney"> Kidney
+                {% endif%}
+                {% if user[0][9] == 1%}
+                <input type="checkbox" name="organ" value="Eyes" checked>Eyes
+                {% else %}
+                <input type="checkbox" name="organ" value="Eyes">Eyes
+                {% endif%}
+                {% if user[0][10] == 1%}
+                <input type="checkbox" name="organ" value="Lungs" checked>Lungs
+                {% else %}
+                <input type="checkbox" name="organ" value="Lungs">Lungs
+                {% endif%}
+            </div>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" id="email" placeholder="Enter Email" name="email" value={{user[0][1]}} required readonly>
+
+            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+            {% if status == True %}
+            <p id="demo" style="color:green">Updated Successfully! </p>
+            {% elif status == False %}
+            <p id="demo1" style="color:red">Error Occured, Try Again!</p>
+            {% endif %}
+
+            <div class="clearfix">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="genric-btn success-border large">Cancel</button>
+                <button type="submit" class="genric-btn success large" id="updatebtn">Update</button>
+            </div>
+
+
+        </div>
+    </form>
+</div>
+    </div>
+</section>
+{% if update == True %}
+<script>
+        function myFunction() {
+          alert("Updated Successfully!!");
+        }
+        myFunction()
+        </script>
+{% elif update == False %}
+<script>
+        function myFunction() {
+          alert("Error Updating \n Try again!!");
+        }
+        myFunction()
+        </script>
+{% endif %}
+{% else %}
+<!--================banner Area =================-->
+<section class="banner_area d-flex text-center">
+    <div class="container align-self-center">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="banner_content">
+                    <h3>Hospital Login</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!--================ start footer Area  =================-->
+<footer class="footer-area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6 class="footer_title">About ONE LIFE</h6>
+                    <p>The world has become so fast paced that people don’t want to stand by reading a page of information, they would much rather look at a presentation and understand the message. It has come to a point </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6 class="footer_title">Navigation Links</h6>
+                    <div class="row">
+                        <div class="col-4">
+                            <ul class="list_style">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Awareness</a></li>
+                                <li><a href="#">KnowMore</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-4">
+                            <ul class="list_style">
+                                <li><a href="#">Laws</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6 class="footer_title">Support</h6>
+                    <a>Any special requirements or suggestions send your beloved mail, we will respond back.	</a>
+
+                    <div id="mc_embed_signup">
+                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
+                            <div class="input-group d-flex flex-row">
+                                <input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
+                                <button class="btn sub-btn"><span class="lnr lnr-location"></span></button>
+                            </div>
+                            <div class="mt-10 info"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="border_line"></div>
+        <div class="row footer-bottom d-flex justify-content-between align-items-center">
+            <p class="col-lg-8 col-sm-8 footer-text m-0"><!-- Link back to  can't be removed. . -->
+
+                <!-- Link back to  can't be removed.. --></p>
+            <div class="col-lg-4 col-sm-4 footer-social">
+                <a><i class="fa fa-facebook"></i></a>
+                <a><i class="fa fa-twitter"></i></a>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="/static/js/jquery-3.2.1.min.js"></script>
+<script src="/static/js/popper.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="/static/js/jquery.ajaxchimp.min.js"></script>
+<script src="/static/js/mail-script.js"></script>
+<script src="/static/js/mail-script.js"></script>
+<script src="/static/js/stellar.js"></script>
+<script src="/static/vendors/lightbox/simpleLightbox.min.js"></script>
+<script src="/static/vendors/flipclock/timer.js"></script>
+<script src="/static/vendors/nice-select/js/jquery.nice-select.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/signup.js"></script>
+<script src="/static/js/Login.js"></script>
+</body>
+</html>

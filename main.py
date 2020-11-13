@@ -3,14 +3,18 @@ import os
 from datetime import timedelta
 from login import login
 from register import register
-
+import pymysql
+mysql_server="localhost"
 
 app = Flask(__name__)
 
 @app.route("/index")
 @app.route('/')
-def index():
-    return render_template("index.html")
+@app.route('/<login>')
+def index(login=None):
+    if g.mail:
+        return render_template("index.html",login=True)
+    return render_template("index.html",login=login)
 
 @app.route('/awareness')
 def awareness():
@@ -41,6 +45,27 @@ def contact():
 def elements():
     return render_template("elements.html")
 
+@app.route('/myacc')
+def myacc():
+    if g.mail:
+        user = session.get("mail")
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "organdonation")
+        cursor = db.cursor()
+        sql = "select * from users where email=%s"
+        value = (session.get("mail"))
+        try:
+            # Execute the SQL command
+            cursor.execute(sql, value)
+            # Fetch all the rows in a list of lists.
+            user = cursor.fetchall()
+            # print(user)
+        except:
+            print("Error: unable to fetch data")
+        db.close()
+
+        return render_template("myacc.html",login=True, user=user)
+    return render_template("myacc.html",login=False)
+
 @app.route('/loginForm', methods=['GET', 'POST'])
 def loginForm():
     result = request.form
@@ -50,8 +75,33 @@ def loginForm():
         session.pop('mail', None)
         if y == True:
             session['mail'] = result['email']
+            print("Session mail obj: ",session['mail'])
             return render_template("index.html", login=True)
     return render_template("index.html", login=False)
+
+@app.route('/updateForm', methods=['GET', 'POST'])
+def updateForm():
+    if g.mail:
+        #print("In Update form")
+        result = request.form
+        organ = result.getlist('organ')
+        obj = register()
+        ans = obj.updatefunc(*organ, **result)
+        return redirect(url_for("myacc"))
+
+
+@app.route('/registerForm', methods=['GET', 'POST'])
+def registerForm():
+    result = request.form
+    organ = result.getlist('organ')
+    ob = register()#creating object for register class
+    ans = ob.registerfunc(*organ, **result)
+    if ans == True:
+        status = True
+        return render_template("index.html", status=status)
+    else:
+        return render_template("index.html", status=False)
+
 
 @app.before_request
 def before_request():

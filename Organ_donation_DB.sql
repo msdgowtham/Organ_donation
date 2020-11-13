@@ -2,6 +2,11 @@ create database organdonation;
 
 use organdonation;
 
-create table users(email varchar(40) primary key, phone int(10), 
-name varchar(30), pwd varchar(40),blood varchar(4),organ varchar(200))engine=InnoDB default charset=latin1;
+create table users(donorid int primary key auto_increment,email varchar(40) unique, 
+name varchar(30),age varchar(15), pwd varchar(40),blood varchar(4),heart int,liver int,
+kidney int,eyes int,lungs int)engine=InnoDB default charset=latin1;
+
+ALTER TABLE users AUTO_INCREMENT=100;
+
+select * from users;
 

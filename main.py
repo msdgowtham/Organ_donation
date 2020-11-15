@@ -36,6 +36,10 @@ def event_details():
 def about_us():
     return render_template("about-us.html")
 
+@app.route('/guide')
+def guide():
+    return render_template("guide.html")
+
 
 @app.route('/contact')
 def contact():

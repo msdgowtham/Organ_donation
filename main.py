@@ -24,13 +24,13 @@ def awareness():
 def aboutonelife():
     return render_template("aboutonelife.html")
 
-@app.route('/event')
-def event():
-    return render_template("event.html")
+@app.route('/orgon')
+def orgon():
+    return render_template("orgon.html")
 
-@app.route('/event-details')
-def event_details():
-    return render_template("event-details.html")
+@app.route('/tissue')
+def tissue():
+    return render_template("tissue.html")
 
 @app.route('/about-us')
 def about_us():

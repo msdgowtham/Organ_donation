@@ -15,6 +15,10 @@ class register():
         self.Kidney=0
         self.Eyes=0
         self.Lungs=0
+        self.blood_donation=result['blood']
+        self.city=result['city']
+        self.phone=result['phone']
+
         #print("organ: ",organ)
         for item in organ:
             if item=="Heart":
@@ -33,9 +37,10 @@ class register():
         db.autocommit(False)
         cursor = db.cursor()
         # execute SQL query using execute() method.
-
-        sql = "insert into users values(Null,%s,%s,%s,aes_encrypt(%s,'passkey'),%s,%s,%s,%s,%s,%s)"
-        val =(self.mailId,self.name,self.age,self.password,self.blood,int(self.Heart),int(self.Liver),int(self.Kidney),int(self.Eyes),int(self.Lungs))
+        #print(result)
+        sql = "insert into users values(Null,%s,%s,%s,aes_encrypt(%s,'passkey'),%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+        val =(self.mailId,self.name,self.age,self.password,self.blood,int(self.Heart),int(self.Liver),int(self.Kidney),int(self.Eyes),int(self.Lungs),
+              bool(self.blood_donation),self.city,self.phone)
         try:
             #print("in try")
             # Execute the SQL command
@@ -59,6 +64,12 @@ class register():
         self.Kidney=0
         self.Eyes=0
         self.Lungs=0
+        self.phone=result['phone']
+        self.blood_donation=result['blood']
+        if self.blood_donation=="Yes":
+            self.blood_donation1=1
+        else:
+            self.blood_donation1=0
 
         for item in organ:
             if item=="Heart":
@@ -75,10 +86,10 @@ class register():
         db = pymysql.connect(mysql_server, "root", "lokesh1999", "organdonation")
         db.autocommit(False)
         cursor = db.cursor()
-        sql = "update users set Heart=%s,Liver=%s,Kidney=%s,Eyes=%s,Lungs=%s where email=%s"
+        sql = "update users set Heart=%s,Liver=%s,Kidney=%s,Eyes=%s,Lungs=%s,blood_donation = %s,phone=%s where email=%s"
         #for item in self.genre:
 
-        val=(int(self.Heart),int(self.Liver),int(self.Kidney),int(self.Eyes),int(self.Lungs),self.email)
+        val=(int(self.Heart),int(self.Liver),int(self.Kidney),int(self.Eyes),int(self.Lungs),bool(self.blood_donation1),self.phone,self.email)
         try:
             cursor.execute(sql, val)
         except Exception as e:

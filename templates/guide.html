@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/responsive.css">
     <link rel="stylesheet" href="/static/css/signup.css">
+
 </head>
 <body>
 <!--================Header Area =================-->
@@ -73,6 +74,9 @@
 
                         </ul>
                     </li>
+                    {% if login == True %}
+                    <li class="nav-item"><a class="nav-link" href="/donor">Donor</a></li>
+                    {% endif %}
 
                 </ul>
 
@@ -98,9 +102,48 @@
 </section>
 <!--================Breadcrumb Area =================-->
 
-<section class="container-fluid">
+<style>
+    option {
+  margin: 0.5em;
+}
+</style>
+
+<section class="container">
     <div class="text-center">
-        <h3>Contact</h3>
+        <form class="modal-content" action="searchHosp" method="post">
+            <div class="container">
+                <h1>Check Hospitals</h1>
+
+                <hr>
+
+                <label for="city"><b>City</b></label>
+                <input type="text" id="city" placeholder="Enter city" name="city" required>
+
+                <div class="clearfix">
+                    <button type="submit" class="genric-btn primary circle" id="search"><h5>Search</h5></button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="text-center">
+        {% if hospitals %}
+        <div class="row">
+        {% for i in hospitals %}
+            <div class="col-sm-12 col-md-6 col-lg-4" style="margin-bottom:15px">
+        <div class="card">
+            <div class="card-header"><b>Hospital Name:</b> {{i[1]}}</div>
+            <div class="card-body"><b>Hospital Address:</b> {{i[2]}}</div>
+            <div class="card-footer"><b>Hospital Contact:</b> {{i[3]}}, {{i[4]}}</div>
+        </div>
+            </div>
+        <br>
+        <br>
+        {%endfor%}
+        </div>
+        {% elif first==False %}
+        <h3 style="color:red">No Data/ Hospitals</h3>
+        {% endif %}
     </div>
 </section>
 
@@ -169,7 +212,9 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="/static/js/jquery-3.2.1.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.5.0.js"></script> -->
+<script src="http://code.jquery.com/jquery.min.js"></script>
+
 <script src="/static/js/popper.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
 <script src="/static/vendors/owl-carousel/owl.carousel.min.js"></script>

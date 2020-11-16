@@ -38,16 +38,67 @@ def about_us():
 
 @app.route('/guide')
 def guide():
-    return render_template("guide.html")
+    if g.mail:
+        return render_template("guide.html",login=True,first=True)
+    else:
+        return render_template("index.html",guidelogin=False)
+
+@app.route('/searchHosp', methods=['GET', 'POST'])
+def searchHosp():
+    if g.mail:
+        result = request.form
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "organdonation")
+        cursor = db.cursor()
+        sql = "select * from hospitals where Address like %s"
+        value = ("%"+result["city"]+"%")
+        try:
+            # Execute the SQL command
+            cursor.execute(sql, value)
+            # Fetch all the rows in a list of lists.
+            hospitals = cursor.fetchall()
+            # print(user)
+        except:
+            print("Error: unable to fetch data")
+        db.close()
+
+        #print(hospitals)
+        return render_template("guide.html",hospitals=hospitals,login=True,first=False)
+    else:
+        return redirect(url_for("index"))
+
+
+@app.route('/searchDonor', methods=['GET', 'POST'])
+def searchDonor():
+    result = request.form
+    db = pymysql.connect(mysql_server, "root", "lokesh1999", "organdonation")
+    cursor = db.cursor()
+    sql = "select * from users where City like %s and blood=%s and blood_donation=1"
+    value = ("%"+result["city"]+"%",result["BloodGroup"])
+    try:
+        # Execute the SQL command
+        cursor.execute(sql, value)
+        # Fetch all the rows in a list of lists.
+        donors = cursor.fetchall()
+        # print(user)
+    except:
+        print("Error: unable to fetch data")
+        return render_template("donor.html",donors=None,first=False)
+    db.close()
+
+    #print(hospitals)
+    return render_template("donor.html",donors=donors,first=False)
 
 
 @app.route('/contact')
 def contact():
     return render_template("contact.html")
 
-@app.route('/elements')
-def elements():
-    return render_template("elements.html")
+@app.route('/donor')
+def donor():
+    if g.mail:
+        return render_template("donor.html",first=True,login=True)
+    else:
+        return redirect(url_for("index"))
 
 @app.route('/myacc')
 def myacc():
@@ -139,6 +190,10 @@ def registerForm():
         return render_template("index.html", status=status)
     else:
         return render_template("index.html", status=False)
+
+
+
+
 
 
 @app.before_request

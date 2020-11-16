@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="/static/image/favicon.png" type="image/png">
@@ -16,39 +17,9 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/responsive.css">
     <link rel="stylesheet" href="/static/css/signup.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<style>
-table {
-font-family: arial, sans-serif;
-border-collapse: collapse;
-width: 100%;
-}
-
-td, th {
-border: 1px solid #dddddd;
-text-align: left;
-padding: 8px;
-}
-
-/*tr:nth-child(even) {
-background-color: #dddddd;
-}*/
-
-.my-custom-scrollbar {
-position: relative;
-height: 200px;
-overflow: auto;
-}
-.table-wrapper-scroll-y {
-display: block;
-}
-
-</style>
 <body>
-
+<!--================Header Area =================-->
 <header class="header_area">
     <div class="header_top">
         <div class="container">
@@ -63,9 +34,11 @@ display: block;
                 <div class="col-sm-6 col-7">
                     <div class="top_btn d-flex justify-content-end">
                         <a href="#">My Account</a>
-
+                        {% if login == True %}
                         <a href="/dropsession">Logout</a>
-
+                        {% else %}
+                        <a href="#"  onclick="document.getElementById('id02').style.display='block'">Donor ID</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -83,91 +56,92 @@ display: block;
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                 <ul class="nav navbar-nav menu_nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/index">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/aboutonelife">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/awareness">Awareness</a></li>
+                    <li class="nav-item submenu dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Know More</a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="/event">Abt Organ Donation</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/event-details">Abt Tissue Donation</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item submenu dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laws</a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="/about-us">Transplant Laws</a></li>
+
+                        </ul>
+                    </li>
+                    {% if login == True %}
                     <li class="nav-item"><a class="nav-link" href="/donor">Donor</a></li>
+                    {% endif %}
+
                 </ul>
 
             </div>
         </div>
     </nav>
 </header>
-
-
-
-<section class="banner_area d-flex text-center">
-    <div class="container align-self-center">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="banner_content align-self-center">
-                    <h6>The Gift of Life, Pass It On</h6>
-                    <h1>Organ Donation </h1>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
+<!--================Header Area =================-->
 
 <section class="container">
-    <div class="row">
-        <h3> Users Details</h3>
-    </div>
-    <div style="overflow-y:auto,overflow-x:auto;" class="table-wrapper-scroll-y my-custom-scrollbar">
-        <input class="form-control" id="myInput" type="text" placeholder="Search..">
-        <table class="table table-bordered table-striped mb-0">
-            <thead>
-            <tr>
-                <th>Donor ID</th>
-                <th>User Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>City</th>
-                <th>Blood Group</th>
-                <th>Blood Donation</th>
-                <th>Heart</th>
-                <th>Liver</th>
-                <th>Kidney</th>
-                <th>Eyes</th>
-                <th>Lungs</th>
+    <div class="text-center">
+        <h3>Contact</h3>
+        <form class="modal-content" action="searchDonor" method="post">
+            <div class="container">
+                <h1>Check Donors</h1>
 
-            </tr>
-            </thead>
-            <tbody id="myTable">
-            {% for i in users %}
-            <tr>
-                <td>{{i[0]}}</td>
-                <td>{{i[2]}}</td>
-                <td>{{i[1]}}</td>
-                <td>{{i[13]}}</td>
-                <td>{{i[12]}}</td>
-                <td>{{i[5]}}</td>
-                <td>{{i[11]}}</td>
-                <td>{{i[6]}}</td>
-                <td>{{i[7]}}</td>
-                <td>{{i[8]}}</td>
-                <td>{{i[9]}}</td>
-                <td>{{i[10]}}</td>
-            </tr>
-            {%endfor%}
-            </tbody>
-        </table>
+                <hr>
+
+                <label for="city"><b>City</b></label>
+                <input type="text" id="city" placeholder="Enter city" name="city" required>
+
+                <label for="BloodGroup"><b>Blood Group</b></label>
+                <div>
+                    <select id="BloodGroup" name="BloodGroup" class="custom-select" required>
+                        <option value="">Select Blood Group</option>
+                        <option value="O+">O+</option>
+                        <option value="A+">A+</option>
+                        <option value="B+">B+</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O-">O-</option>
+                        <option value="A-">A-</option>
+                        <option value="B-">B-</option>
+                    </select>
+                </div>
+
+
+
+                <div class="clearfix">
+                    <button type="submit" class="genric-btn primary circle" id="search"><h5>Search</h5></button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="text-center">
+
+        {% if donors %}
+        <div class="row">
+        {% for i in donors %}
+        <div class="col-sm-12 col-md-6 col-lg-4" style="margin-bottom:15px">
+        <div class="card">
+            <div class="card-header"><b>Name:</b> {{i[2]}}</div>
+            <div class="card-body"><b>Blood Group:</b> {{i[5]}}<br><b>City:</b> {{i[12]}}</div>
+            <div class="card-footer"><b>Contact:</b> {{i[13]}}, {{i[1]}}</div>
+        </div>
+        </div>
+        <br>
+        <br>
+        {%endfor%}
+        </div>
+        {% elif first==False %}
+            <h3 style="color:red">No Data/ Donors</h3>
+        {% endif %}
     </div>
 </section>
-
-
-
-
 
 
 <!--================ start footer Area  =================-->

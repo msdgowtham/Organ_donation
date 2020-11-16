@@ -72,8 +72,10 @@
                                     <li class="nav-item"><a class="nav-link" href="/about-us">Transplant Laws</a></li>
                                     
                                 </ul>
-                            </li> 
-                            
+                            </li>
+                            {% if login == True %}
+                            <li class="nav-item"><a class="nav-link" href="/donor">Donor</a></li>
+                            {% endif %}
                         </ul>
                         
                     </div> 
@@ -121,7 +123,7 @@
                         <div class="about_content flex">
                             <h3 class="title_color">What made us work on OneLife and the inspiration behind this?</h3>
                             <p> Each one of us faced few issues when it comes to this field. Many of us faced problems from basic Blood infusion to the core Heart Transplantation. All these problems are faced by all sector people, there is place for High and Low everyone are equal. The reason behind OneLife is to make work easier for public so they can find the neccessary organ hazel free .</p>
-                            <a href="#" class="about_btn btn_hover">Read Full Story</a>
+                            <a href="/aboutonelife" class="about_btn btn_hover">Read Full Story</a>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -457,6 +459,11 @@
 					<option value="B-">B-</option>
               </select>
              </div>
+            <label for="blood"><b>Want to Donate Blood?</b></label>
+            <div class="" id="blood" name="organ_sel" style="color: black" >
+                <input type="radio" name="blood" value="Yes">Yes
+                <input type="radio" name="blood" value="No">No</div>
+             <br><br>
             <label for="organ_sel"><b>Organ</b></label>
             <div class="" id="organ_sel" name="organ_sel" style="color: black" >
                 <input type="checkbox" name="organ" value="Heart">Heart
@@ -465,6 +472,13 @@
                 <input type="checkbox" name="organ" value="Eyes">Eyes
                 <input type="checkbox" name="organ" value="Lungs">Lungs
             </div>
+                <br>
+
+            <label for="city"><b>City</b></label>
+            <input type="text" id="city" placeholder="Enter city" name="city" required>
+
+            <label for="phone"><b>Phone</b></label>
+            <input type="text" id="phone" placeholder="Enter phone" name="phone" pattern="[0-9]{10}" required>
 
           <label for="email1"><b>Email</b></label>
           <input type="text" id="email1" placeholder="Enter Email" name="email1" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
@@ -473,12 +487,6 @@
           <input type="password" id="pwd1" placeholder="Enter Password" name="pwd1" required>
 
           <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-            {% if status == True %}
-            <p id="demo" style="color:green">Registered Successfully! </p>
-            {% elif status == False %}
-            <p id="demo1" style="color:red">Error Occured, Try Again!</p>
-            {% endif %}
 
           <div class="clearfix">
             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="genric-btn success-border large">Cancel</button>
@@ -505,6 +513,19 @@
         {% endif %}
 
 
+
+
+
+        {% if guidelogin == False %}
+        <script>
+        function myFunction1() {
+          alert("Please Login to access this feature!!");
+        }
+        myFunction1()
+        </script>
+
+        {% endif %}
+
   <!--Donor Login -->
   <div id="id02" class="modal">
 
@@ -523,7 +544,7 @@
           
 
           <div class="clearfix">
-            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="genric-btn primary-border circle"><h5>Cancel</h5</button>
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="genric-btn primary-border circle"><h5>Cancel</h5></button>
             <button type="submit" class="genric-btn primary circle" id="login"><h5>Login</h5></button>
           </div>
         </div>

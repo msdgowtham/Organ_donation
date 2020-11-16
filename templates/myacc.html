@@ -74,6 +74,9 @@
 
                         </ul>
                     </li>
+                    {% if login == True %}
+                    <li class="nav-item"><a class="nav-link" href="/donor">Donor</a></li>
+                    {% endif %}
 
                 </ul>
 
@@ -102,6 +105,27 @@
 
             <label for="BloodGroup"><b>Name</b></label>
             <input type="text" id="BloodGroup" placeholder="Enter BloodGroup" name="BloodGroup" value={{user[0][5]}} required readonly>
+
+            <label for="blood"><b>Want to Donate Blood?</b></label>
+            <div class="" id="blood" name="organ_sel" style="color: black" >
+                {% if user[0][11] == 1%}
+                <input type="radio" name="blood" value="Yes" checked>Yes
+                {% else %}
+                <input type="radio" name="blood" value="Yes">Yes
+                {% endif%}
+
+                {% if user[0][11] == 0%}
+                <input type="radio" name="blood" value="No" checked>No
+                {% else %}
+                <input type="radio" name="blood" value="No">No
+                {% endif%}
+            </div>
+            <br><br>
+            <label for="city"><b>City</b></label>
+            <input type="text" id="city" placeholder="Enter city" name="city" value="{{user[0][12]}}" required readonly>
+
+            <label for="phone"><b>Phone</b></label>
+            <input type="text" id="phone" placeholder="Enter phone" name="phone" pattern="[0-9]{10}" value="{{user[0][13]}}" required>
 
             <label for="organ_sel"><b>Organ</b></label>
 

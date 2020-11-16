@@ -5,8 +5,8 @@ class login():
     def validateLogin(self,**data):
         self.mailId = data['email']
         self.password = data['pwd']
-        print("In Login function")
-        print(self.mailId,self.password)
+        #print("In Login function")
+        #print(self.mailId,self.password)
         # Open database connection
         db = pymysql.connect(mysql_server, "root", "lokesh1999", "organdonation")
         # prepare a cursor object using cursor() method
